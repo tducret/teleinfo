@@ -6,7 +6,7 @@
 */
 
 
-#include "teleinfo/TeleInfo.h"
+#include "teleinfo/teleinfo.h"
 
 // ======== MAIN ============
 
