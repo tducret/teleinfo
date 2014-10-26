@@ -1,0 +1,7 @@
+{
+    "name": "teleinfo",
+    "version": "0.1.0",
+    "author": "Thibault <thibault.chauffage@gmail.com> »,
+    "license": "MIT",
+    "description": "Cette librairie permet de décoder les trames Téléinfo des compteurs ERDF"
+}
