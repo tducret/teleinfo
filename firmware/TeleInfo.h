@@ -8,6 +8,8 @@ Licence MIT
 #ifndef TeleInfo_h
 #define TeleInfo_h
 
+#include "application.h"
+
 #include <stdlib.h>
 #include <string.h>
 
