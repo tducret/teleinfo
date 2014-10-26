@@ -5,8 +5,7 @@
    On utilise la pin RX du Spark Core, et un optocoupleur.
 */
 
-#include "application.h"
-#include "teleinfo/TeleInfo.h"
+#include "TeleInfo/TeleInfo.h"
 
 // ======== MAIN ============
 
