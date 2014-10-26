@@ -6,7 +6,7 @@ Copyright (C) 2014 Thibault Ducret
 Licence MIT
 */
 
-#include "teleinfo.h"
+#include "TeleInfo.h"
 
 //définition des étiquettes
 #define _ETIQ_ADCOMPTEUR	"ADCO"
