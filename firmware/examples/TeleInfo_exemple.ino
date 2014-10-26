@@ -7,6 +7,7 @@
 
 
 #include "teleinfo/TeleInfo.h"
+#include "application.h"
 
 // ======== MAIN ============
 
