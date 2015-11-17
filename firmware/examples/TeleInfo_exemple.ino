@@ -15,22 +15,22 @@ TeleInfo ti; // création de l'objet téléinfo
 char c; // pour stocker un caractère reçu sur le port série
 bool trameComplete = false;
 
-unsigned int mypApp = TELEINFO_UINT_INVALIDE;       // puissance apparente
-unsigned int myiInst = TELEINFO_UINT_INVALIDE;      // courant instantané
-unsigned int myindexHC = TELEINFO_UINT_INVALIDE;    // index heures creuses
-unsigned int myindexHP = TELEINFO_UINT_INVALIDE;    // index heures pleines
+int mypApp = TELEINFO_UINT_INVALIDE;       // puissance apparente
+int myiInst = TELEINFO_UINT_INVALIDE;      // courant instantané
+int myindexHC = TELEINFO_UINT_INVALIDE;    // index heures creuses
+int myindexHP = TELEINFO_UINT_INVALIDE;    // index heures pleines
   
 void setup()
 {
-	Serial.begin(1200);  // port série RX/TX du Spark core
-	// on permet la récupération des variables via le cloud Spark Core
-	Spark.variable("papp", &mypApp, INT);
-    Spark.variable("iinst", &myiInst, INT);
-    Spark.variable("indexhc", &myindexHC, INT);
-    Spark.variable("indexhp", &myindexHP, INT);
+	Serial1.begin(1200);  // port série RX/TX du Particle core
+	// on permet la récupération des variables via le cloud Particle
+	Particle.variable("papp", mypApp);
+	Particle.variable("iinst", myiInst);
+	Particle.variable("indexhc", myindexHC);
+	Particle.variable("indexhp", myindexHP);
 }
 
-// ======== RECUPERATION SUR LE SPARK CLOUD ============
+// ======== RECUPERATION SUR LE Particle CLOUD ============
 /*
 Si tout se passe bien, on peut récupérer les valeurs du compteur via :
 
@@ -43,13 +43,13 @@ https://api.spark.io/v1/devices/<DEVICE_ID>/<VARIABLE>?access_token=<ACCESS_TOKE
 
 void loop()
 {
-	while (Serial.available())
+	while (Serial1.available())
 	{
 		c = (Serial1.read() & 0x7F);  // suppression du 8ème bit (la trame téléinfo est sur 7 bits)
 		trameComplete = ti.decode(c); // on envoie chaque caractère reçu dans la fonction d'encodage
 		if (trameComplete) // si la trame est complète
 		{
-		  // on récupère les données extraites de la trame téléinfo
+		  	// on récupère les données extraites de la trame téléinfo
 			mypApp=ti.pApp();
 			myiInst=ti.iInst();
 			myindexHC=ti.indexHC();
