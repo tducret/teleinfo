@@ -12,7 +12,8 @@ Licence MIT
 #define _ETIQ_ADCOMPTEUR	"ADCO"
 #define _ETIQ_OPTARIF		"OPTARIF"
 #define _ETIQ_ISOUSC		"ISOUSC"
-#define _ETIQ_INDEXHC		"HCHC"
+#define _ETIQ_INDEXBASE       "BASE"
+#define _ETIQ_INDEXHC       "HCHC"
 #define _ETIQ_INDEXHP		"HCHP"
 #define _ETIQ_PERTARIF		"PTEC"
 #define _ETIQ_IINST			"IINST"
@@ -25,6 +26,7 @@ Licence MIT
   
 TeleInfo::TeleInfo()
   :  _iSousc(TELEINFO_UINT_INVALIDE)
+  ,  _indexBASE(TELEINFO_UINT_INVALIDE)
   ,  _indexHC(TELEINFO_UINT_INVALIDE)
   ,  _indexHP(TELEINFO_UINT_INVALIDE)
   ,  _iInst(TELEINFO_UINT_INVALIDE)
@@ -183,10 +185,14 @@ void TeleInfo::affecterVariables()
   	{
   		_iInst=(unsigned int) atoi(_tableauGroupes[i].donnee);
   	}
-  	else if (strcmp(_tableauGroupes[i].etiquette,_ETIQ_INDEXHC) == 0)
-  	{
-  		_indexHC=(unsigned int) atoi(_tableauGroupes[i].donnee);
-  	}
+    else if (strcmp(_tableauGroupes[i].etiquette,_ETIQ_INDEXBASE) == 0)
+    {
+        _indexBASE=(unsigned int) atoi(_tableauGroupes[i].donnee);
+    }
+    else if (strcmp(_tableauGroupes[i].etiquette,_ETIQ_INDEXHC) == 0)
+    {
+        _indexHC=(unsigned int) atoi(_tableauGroupes[i].donnee);
+    }
   	else if (strcmp(_tableauGroupes[i].etiquette,_ETIQ_INDEXHP) == 0)
   	{
   		_indexHP=(unsigned int) atoi(_tableauGroupes[i].donnee);
