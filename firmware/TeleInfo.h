@@ -41,6 +41,9 @@ public:
   // intensité souscrite (en A)
   inline unsigned int iSousc() { return _iSousc; }
   
+  // index option Base (en Wh)
+  inline unsigned int indexBASE() { return _indexBASE; }
+  
   // index option Heures Creuses (en Wh)
   inline unsigned int indexHC() { return _indexHC; }
   
@@ -77,6 +80,7 @@ private:
   char _adCompteur[TAILLE_MAX_CHAINE_DONNEE], _new_adCompteur[TAILLE_MAX_CHAINE_DONNEE];
   char _opTarif[TAILLE_MAX_CHAINE_DONNEE], _new_opTarif[TAILLE_MAX_CHAINE_DONNEE];
   unsigned int _iSousc, _new_iSousc;
+  unsigned int _indexBASE, _new_indexBASE;
   unsigned int _indexHC, _new_indexHC;
   unsigned int _indexHP, _new_indexHP;
   char _perTarif[TAILLE_MAX_CHAINE_DONNEE], _new_perTarif[TAILLE_MAX_CHAINE_DONNEE];
